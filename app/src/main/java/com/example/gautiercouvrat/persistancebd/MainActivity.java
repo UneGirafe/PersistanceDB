@@ -1,11 +1,13 @@
 package com.example.gautiercouvrat.persistancebd;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +34,30 @@ public class MainActivity extends AppCompatActivity {
 
         isbn.setText("");
         titre.setText("");
+    }
+
+
+    public void rechercher(View view){
+        EditText titre = (EditText) findViewById(R.id.editRecherche);
+
+            Livre res = bdLivres.getLivreByTitre(titre.getText().toString());
+
+            if(res == null){
+                Log.e(TAG, "rechercher --> la recherche de "+titre + " ne ramène aucun résultat");
+                Toast.makeText(this, "La recherche de "+titre + " ne ramène aucun résultat",Toast.LENGTH_SHORT);
+            }
+
+            //création de l'intent
+            Intent intent = new Intent(this, AfficherResultat.class);
+
+            //ajoute les infos
+            intent.putExtra("isbn", res.getIsbn());
+            intent.putExtra("titre",res.getTitre());
+
+            //lance l'activité
+            startActivity(intent);
+
+            titre.setText("");
     }
 
 

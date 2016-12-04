@@ -10,82 +10,141 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.gautiercouvrat.persistancebd.MainActivity">
 
-
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:orientation="vertical">
 
-        <TextView
+        <!-- SECTION AJOUT -->
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="AJOUT DE LIVRE"
-            android:textColor="@color/colorAccent"
-            android:textStyle="bold"
-            android:textAlignment="center" />
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/sectionAjout">
 
             <TextView
-                android:text="ISBN"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/isbn"
+                android:text="AJOUT DE LIVRE"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                android:textAlignment="center" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="ISBN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/isbn"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="Code isbn"
+                    android:ems="10"
+                    android:id="@+id/editIsbn"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="TITRE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/titre"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="Nom"
+                    android:ems="10"
+                    android:id="@+id/editTitre"
+                    android:layout_weight="1.13" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <Button
+                android:text="Ajouter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/boutonAjouter"
+                android:onClick="ajouter"
                 android:layout_weight="1" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="Code isbn"
-                android:ems="10"
-                android:id="@+id/editIsbn"
-                android:layout_weight="1" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <TextView
-                android:text="TITRE"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/titre"
-                android:layout_weight="1" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="Nom"
-                android:ems="10"
-                android:id="@+id/editTitre"
-                android:layout_weight="1.13" />
-
         </LinearLayout>
 
         <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
+        android:layout_width="match_parent"
+        android:layout_height="40dp"  />
 
-        <Button
-            android:text="Button"
+
+        <!-- SECTION RECHERCHE -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/boutonAjouter"
-            android:onClick="ajouter"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/sectionRecherche">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RECHERCHE DE LIVRE"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="Livre à rechercher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rechercheLabel"
+                android:layout_weight="1" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editRecherche"
+                android:hint="Titre du livre" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <Button
+                android:text="RECHERCHER"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="rechercher"
+                android:id="@+id/boutonRechercher" />
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
+
+
 
 </RelativeLayout>
